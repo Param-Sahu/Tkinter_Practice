@@ -3,8 +3,8 @@ root = Tk()
 root.title("Calculator") # Define the main title or heading of Widget.
 
 # Making Entry 
-entry = Entry(root,width =10,fg= "blue",bg="yellow",borderwidth=5)
-entry.grid(row=0,column=2)
+entry = Entry(root,width =35,fg= "blue",bg="yellow",borderwidth=5)
+entry.grid(row=0,column=1,columnspan=3,padx=50,pady=30)
 
 #Making function for clicking 1,2,3 ... buttons
 def clicked():
