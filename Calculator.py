@@ -3,8 +3,8 @@ root = Tk()
 root.title("Calculator") # Define the main title or heading of Widget.
 
 # Making Entry 
-entry = Entry(root,width =35,fg= "blue",bg="yellow",borderwidth=5,relief='flat',font=5)
-entry.grid(row=0,column=1,columnspan=3,pady=20,padx=20)
+entry = Entry(root,width =35,fg= "blue",bg="yellow",borderwidth=5,relief='flat',font=100)
+entry.grid(row=0,column=1,columnspan=3,pady=10)
 
 #Making function for clicking 1,2,3 ... buttons
 def clicked(value):
@@ -26,36 +26,58 @@ def clear(): #Creating function for clearing whole screen.
 
 
 def backspace(): # Creating function for Backspace
-    pass
+    lenth= len(entry.get())
+    entry.delete(lenth-1,END)
 
-def add():
-    first_num =entry.get()
-    global f_num 
-    f_num = int(first_num)
+def action(value):
+    
+    global first_num 
+    global operator 
+    operator = value
+    first_num =float(entry.get())
     entry.delete(0,END)
+
+    
 
 def equal():
-    global f_num
-    second_num = entry.get()
+    global first_num
+    global operator
+    second_num = float(entry.get())
     entry.delete(0,END)
-    entry.insert(0,f_num + int(second_num))
+    if operator == '+':
+        entry.insert(0,first_num + second_num)
+    elif operator == '-':
+        entry.insert(0,first_num-second_num)
+    elif operator == '*':
+        entry.insert(0,first_num * second_num) # Always write index position number
+    elif operator == '/':
+        if second_num == '0':
+            zero = Label(root,text = "Can't divided by zero.",font=20)
+            zero.grid(row=7,column=1)
+
+        else:         
+            entry.insert(0,first_num/second_num) #Always write index position number .
 
 
 #Defineing and positioning (packing) Buttons for 1,2,3.... 0 
-button_1 = Button(root,text="1",command=lambda : clicked(1),padx=40,pady=20).grid(row=3,column=3)
-button_2 = Button(root,text="2",command=lambda : clicked(2),padx=40,pady=20).grid(row=3,column=2)
-button_3 = Button(root,text="3",command=lambda : clicked(3),padx=40,pady=20).grid(row=3,column=1)
-button_4 = Button(root,text="4",command=lambda : clicked(4),padx=40,pady=20).grid(row=2,column=3)
-button_5 = Button(root,text="5",command=lambda : clicked(5),padx=40,pady=20).grid(row=2,column=2)
-button_6 = Button(root,text="6",command=lambda : clicked(6),padx=40,pady=20).grid(row=2,column=1)
-button_7 = Button(root,text="7",command=lambda : clicked(7),padx=40,pady=20).grid(row=1,column=3)
-button_8 = Button(root,text="8",command=lambda : clicked(8),padx=40,pady=20).grid(row=1,column=2)
-button_9 = Button(root,text="9",command=lambda : clicked(9),padx=40,pady=20).grid(row=1,column=1)
-button_0 = Button(root,text="0",command=lambda : clicked(0),padx=40,pady=20).grid(row=4,column=1)
-button_add = Button(root,text="+",command=add,padx=40,pady=20).grid(row=4,column=2)
-button_equal = Button(root,text="=",command=equal,padx=40,pady=20).grid(row=4,column=3)
-button_clear = Button(root,text="Clear",command=clear,padx=30,pady=20).grid(row=5,column=1)
-button_backspace = Button(root,text="<-",command=backspace,padx=40,pady=20).grid(row=5,column=2)
+button_1 = Button(root,text="1",command=lambda : clicked(1),padx=40,pady=20,font=9).grid(row=3,column=3)
+button_2 = Button(root,text="2",command=lambda : clicked(2),padx=40,pady=20,font=9).grid(row=3,column=2)
+button_3 = Button(root,text="3",command=lambda : clicked(3),padx=40,pady=20,font=9).grid(row=3,column=1)
+button_4 = Button(root,text="4",command=lambda : clicked(4),padx=40,pady=20,font=9).grid(row=2,column=3)
+button_5 = Button(root,text="5",command=lambda : clicked(5),padx=40,pady=20,font=9).grid(row=2,column=2)
+button_6 = Button(root,text="6",command=lambda : clicked(6),padx=40,pady=20,font=9).grid(row=2,column=1)
+button_7 = Button(root,text="7",command=lambda : clicked(7),padx=40,pady=20,font=9).grid(row=1,column=3)
+button_8 = Button(root,text="8",command=lambda : clicked(8),padx=40,pady=20,font=9).grid(row=1,column=2)
+button_9 = Button(root,text="9",command=lambda : clicked(9),padx=40,pady=20,font=9).grid(row=1,column=1)
+button_0 = Button(root,text="0",command=lambda : clicked(0),padx=40,pady=20,font=9).grid(row=4,column=1)
+button_add = Button(root,text="+",command=lambda : action('+'),padx=40,pady=20,font=9).grid(row=4,column=2)
+button_minus = Button(root,text="-",command=lambda : action('-'),padx=40,pady=20,font=9).grid(row=4,column=3)
+button_multiply = Button(root,text="×",command=lambda : action('*'),padx=40,pady=20,font=9).grid(row=5,column=1)
+button_divide = Button(root,text="÷",command=lambda : action('/'),padx=40,pady=20,font=9).grid(row=5,column=2)
+button_decimal = Button(root,text=".",command=lambda : clicked('.'),padx=40,pady=20,font=9).grid(row=5,column=3)
+button_equal = Button(root,text="=",command=equal,padx=40,pady=20,font=9).grid(row=6,column=1)
+button_clear = Button(root,text="Clear",command=clear,padx=25,pady=20,font=9).grid(row=6,column=2)
+button_backspace = Button(root,text="<-",command=backspace,padx=35,pady=20,font=9).grid(row=6,column=3)
 
 '''
 command = lambda : clicked(value)
