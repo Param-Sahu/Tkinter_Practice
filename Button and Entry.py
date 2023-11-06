@@ -40,6 +40,10 @@ fg : fg refers to the font color (forground color)
 bg : bg refers to background color. 
 Name of colors must be written in "".
 You can also write hex color code instead of color name.
+
+command keyword argument decides what action button will be perform.
+In above code command = clicked , It's call a function clicked , we can customized this ,
+according to our need
 '''
 button.pack()
 #pack function pack the labels and  the button in widget
