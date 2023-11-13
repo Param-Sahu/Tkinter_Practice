@@ -18,5 +18,5 @@ my_label.pack()
 button_exit = Button(root,text="click here to exit.",command=root.quit).pack()
 # root.quit function ends the gui , You can use root.destroy as well.
 button_destroy = Button(root,image=my_image,padx=100,pady=100,fg="RED",bg="Yellow",command=root.destroy,font="Verdana 50",activebackground='red').pack()
-
+# active background reflect color when button is clicked.
 root.mainloop()
