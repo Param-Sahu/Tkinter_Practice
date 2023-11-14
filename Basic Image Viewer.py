@@ -25,27 +25,30 @@ def forward():
     global image_label
     global image_list
     global i
+    global image_status_label
     if i<4:
+        
         image_label.grid_forget()
         i+=1
         image_label = Label(root,image=image_list[i])
         image_label.grid(row=0,column=0,columnspan=3)
-    else:
-        last_image = Label(root,text='This is Last Image ')
-        last_image.grid(row=2,columnspan=3)
-
+        image_status_label = Label(root,text=f'Image {i+1} out of {len(image_list)} ')
+        image_status_label.grid(row=2,columnspan=3)
+    
 def backward():
     global image_label
     global image_list
     global i
-    if i!=0:
+    global image_status_label
+    if i>0:
+        
         image_label.grid_forget()
         i-=1
         image_label = Label(root,image=image_list[i])
         image_label.grid(row=0,column=0,columnspan=3)
-    else:
-        last_image = Label(root,text='This is First Image ')
-        last_image.grid(row=2,columnspan=3)
+        image_status_label = Label(root,text=f'Image {i+1} out of {len(image_list)} ')
+        image_status_label.grid(row=2,columnspan=3)
+    
 
 
 # Deciding row, column and columnspan for images .
@@ -54,6 +57,8 @@ global i
 i=0
 image_label = Label(root,image=image_list[i])
 image_label.grid(row=0,column=0,columnspan=3,padx=160,pady=90)
+image_status_label = Label(root,text=f'Image {i+1} out of {len(image_list)} ')
+image_status_label.grid(row=2,columnspan=3)
 
 # Creating forward ,backward buttons and exit button.
 
