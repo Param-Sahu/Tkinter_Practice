@@ -28,10 +28,10 @@ def forward():
     global image_status_label
     if i<4:
         
-        image_label.grid_forget()
+        image_label.pack_forget()
         i+=1
-        image_label = Label(root,image=image_list[i])
-        image_label.grid(row=0,column=0,columnspan=3)
+        image_label = Label(frame,image=image_list[i])
+        image_label.pack()
         image_status_label = Label(root,text=f'Image {i+1} out of {len(image_list)} ')
         image_status_label.grid(row=2,columnspan=3)
     
@@ -42,10 +42,10 @@ def backward():
     global image_status_label
     if i>0:
         
-        image_label.grid_forget()
+        image_label.pack_forget()
         i-=1
-        image_label = Label(root,image=image_list[i])
-        image_label.grid(row=0,column=0,columnspan=3)
+        image_label = Label(frame,image=image_list[i])
+        image_label.pack()
         image_status_label = Label(root,text=f'Image {i+1} out of {len(image_list)} ')
         image_status_label.grid(row=2,columnspan=3)
     
@@ -55,8 +55,10 @@ def backward():
 global image_label
 global i 
 i=0
-image_label = Label(root,image=image_list[i])
-image_label.grid(row=0,column=0,columnspan=3,padx=160,pady=90)
+frame = LabelFrame(root,text= "Images",bd=2,padx=100,pady=100,font='Calibri 24')
+frame.grid(row=0,column=0,columnspan=3,padx=10,pady=10)
+image_label = Label(frame,image=image_list[i])
+image_label.pack()
 image_status_label = Label(root,text=f'Image {i+1} out of {len(image_list)} ')
 image_status_label.grid(row=2,columnspan=3)
 
