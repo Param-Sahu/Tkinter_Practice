@@ -4,11 +4,16 @@ root = Tk()
 root.title("Image Viewer App")
 root.geometry("500x500")
 # Images to be shown in Image viewer App (List of Images)
+# Replace your own images path with these images.
 my_image_1 = ImageTk.PhotoImage(Image.open(r'C:\Users\91989\Pictures\Saved Pictures\C++.png'))
 my_image_2 = ImageTk.PhotoImage(Image.open(r'C:\Users\91989\Pictures\Saved Pictures\Arduino.png'))
 my_image_3 = ImageTk.PhotoImage(Image.open(r'C:\Users\91989\Pictures\Saved Pictures\Python_1.jpg'))
 my_image_4 = ImageTk.PhotoImage(Image.open(r'C:\Users\91989\Pictures\Saved Pictures\download.jpg'))
 my_image_5 = ImageTk.PhotoImage(Image.open(r'C:\Users\91989\Pictures\Saved Pictures\IOT.jpg'))
+
+# You can add more images, You have to append the new added images in "image_list" List.
+# paste your image path in open() function in  r'C\user\user_name\picture.png' . Do not forget to 'r' before location of images.
+
 
 ''' PhotoImage() Function and open() function from ImageTk and Image respectively help to import images from directory .
   r'' finds the address of icon image.
@@ -17,7 +22,7 @@ my_image_5 = ImageTk.PhotoImage(Image.open(r'C:\Users\91989\Pictures\Saved Pictu
 # Creating List of Images
 
 global image_list
-image_list = [my_image_1,my_image_2,my_image_3,my_image_4,my_image_5]
+image_list = [my_image_1,my_image_2,my_image_3,my_image_4,my_image_5] # Append all images in Image  List.
 
 # Creating functions for button's action.
 
