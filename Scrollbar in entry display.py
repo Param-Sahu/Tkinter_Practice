@@ -15,3 +15,4 @@ scrollbar.grid(row=1, column=0, sticky='ew')
 entry.config(xscrollcommand=scrollbar.set)
 
 root.mainloop()
+  
